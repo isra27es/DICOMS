@@ -21,6 +21,7 @@ const App = () => {
         const validationPromises = files.map(file => validateFile(file).then(isValid => {
             if (isValid) {
                 const newRow = {
+                    id: Date.now() + file.name, // Ensure unique id for each file
                     name: file.name,
                     category: document.getElementById('category-select').value,
                     date: formattedDate,
@@ -49,9 +50,9 @@ const App = () => {
         }
     };
 
-    const deleteRow = (fileName) => {
-        setHistorial(prevHistorial => prevHistorial.filter(file => file.name !== fileName));
-        setResultMessage(`Archivo "${fileName}" ha sido eliminado.`);
+    const deleteRow = (id) => {
+        setHistorial(prevHistorial => prevHistorial.filter(file => file.id !== id));
+        setResultMessage('Archivo eliminado.');
         setMessageClass('text-danger');
         setTimeout(() => {
             setResultMessage('');
@@ -65,7 +66,6 @@ const App = () => {
             setResultMessage(`Archivos "${fileNames}" subidos con éxito.`);
             setMessageClass('text-success');
             document.getElementById('donationForm').reset();
-            setHistorial([]);
             setDonateButtonDisabled(true);
             setTimeout(() => {
                 setResultMessage('');
@@ -130,7 +130,7 @@ const App = () => {
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="file-input" className="label-text">Estudio Médico (DICOM, DCM o ZIP)</label>
+                            <label htmlFor="file-input" className="label-text">Estudio Médico (DICOM, DCM y ZIP)</label>
                             <label className="Documents-btn" htmlFor="file-input">
                                 <span className="folderContainer">
                                     <svg className="fileBack" width="146" height="113" viewBox="0 0 146 113" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,13 +180,13 @@ const App = () => {
                             </thead>
                             <tbody id="historial-body">
                                 {historial.map(file => (
-                                    <tr key={file.name}>
+                                    <tr key={file.id}>
                                         <td>{file.name}</td>
                                         <td>{file.category}</td>
                                         <td>{file.date}</td>
                                         <td>{file.time}</td>
                                         <td>
-                                            <button className="bin-button btn btn-danger" onClick={() => deleteRow(file.name)}>
+                                            <button className="bin-button btn btn-danger" onClick={() => deleteRow(file.id)}>
                                                 <i className="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
