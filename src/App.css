@@ -1,38 +1,291 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #a6c0cd;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    width: 90%;
+    max-width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container h1, .container h3 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #26798E;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.container a {
+    color: #26798E!important;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container a:hover {
+    color: #145c73;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+.main-container, .history-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 20px;
+    transition: none;
+}
+
+.history-container:hover, .main-container:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333333;
+    text-align: left;
+    width: 100%;
+}
+
+.container input[type="file"],
+.container input[type="file"]:focus {
+    display: none; 
+}
+
+.container button {
+    background-color: #26798E;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container button:hover {
+    background-color: #1e5d74;
+}
+
+.container button:focus,
+.container button:active {
+    background-color: #26798E;
+    color: #ffffff; 
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-icon {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-donate:hover .btn-icon {
+    transform: scale(1.2);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: grab; 
+}
+
+.table-responsive:active {
+    cursor: grabbing; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #26798E;
+    color: #ffffff;
+}
+
+td {
+    color: #000000;
+}
+
+td a {
+    color: #9c0000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.bin-button {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center!important;
+  justify-content: center!important;
+  width: 55px!important;
+  height: 55px!important;
+  border-radius: 15px!important;
+  background-color: rgb(255, 95, 95)!important;
+  cursor: pointer!important;
+  border: 3px solid rgb(255, 201, 201)!important;
+  transition-duration: 0.3s!important;
+}
+
+.bin-bottom {
+  width: 15px!important;
+}
+
+.bin-top {
+  width: 17px!important;
+  transform-origin: right!important;
+  transition-duration: 0.3s!important;
+}
+
+.bin-button:hover .bin-top {
+  transform: rotate(45deg)!important;
+}
+
+.bin-button:hover {
+  background-color: rgb(255, 0, 0)!important;
+}
+
+.bin-button:active {
+  transform: scale(0.9)!important;
+}
+
+.Documents-btn {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center; 
+    width: auto;
+    height: 45px;
+    border: none;
+    padding: 10px 15px; 
+    border-radius: 5px;
+    background-color: rgb(178, 178, 178);
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.Documents-btn .folderContainer {
+    width: 40px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.Documents-btn .fileBack {
+    z-index: 1;
+    width: 80%;
+    height: auto;
+}
+
+.Documents-btn .filePage {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+}
+
+.Documents-btn .fileFront {
+    width: 85%;
+    height: auto;
+    position: absolute;
+    z-index: 3;
+    opacity: 0.95;
+    transform-origin: bottom;
+    transition: all 0.3s ease-out;
+}
+
+.Documents-btn:hover .filePage {
+    transform: translateY(-5px);
+}
+
+.Documents-btn:hover {
+    background-color: rgb(165, 165, 165);
+}
+
+.Documents-btn:active {
+    transform: scale(0.95);
+}
+
+.Documents-btn:hover .fileFront {
+    transform: rotateX(30deg);
+}
+
+.Documents-btn .text1 {
+    color: white !important;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center !important 
+}
+
+.text-danger {
+    color: red;
+}
+
+.text-success {
+    color: green;
 }
